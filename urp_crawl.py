@@ -14,10 +14,10 @@ with open('test.jpg', 'wb') as fd:
     fd.write(captcha.content)
     '''
 
-# captcha_image = Image.open('C:/Users/32838/Desktop/captcha/1.jpg')
+# captcha_image = Image.open('')
 # opencv处理
 '''
-img_cv = cv2.imread('C:/Users/32838/Desktop/captcha/1.jpg')
+img_cv = cv2.imread('')
 im = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
 cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 1)
 cv2.imwrite('C:/Users/32838/Desktop/captcha/test1.jpg', im)
@@ -27,7 +27,7 @@ exit(0)
 
 
 def getCaptcha():
-    captcha_image = Image.open('C:/Users/32838/Desktop/captcha/test.jpg')
+    captcha_image = Image.open('')
     pix = captcha_image.load()
     width = captcha_image.size[0]
     length = captcha_image.size[1]
@@ -42,11 +42,11 @@ def getCaptcha():
                 pix[x, y] = 255, 255, 255
             im.putpixel((x, y), pix[x, y])
     '''
-    im.save('C:/Users/32838/Desktop/captcha/test2.jpg')
-    img_cv = cv2.imread('C:/Users/32838/Desktop/captcha/test2.jpg')
+    im.save('')
+    img_cv = cv2.imread('')
     im = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
     cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 1)
-    cv2.imwrite('C:/Users/32838/Desktop/captcha/test1.jpg', im)
+    cv2.imwrite('', im)
     exit(0)
     '''
     for x in range(width):
@@ -66,7 +66,7 @@ def getCaptcha():
                 # print(x,y)
                 pix[x, y] = 255, 255, 255
             im.putpixel((x, y), pix[x, y])
-    # im.save('C:/Users/32838/Desktop/tif/%d.tif' % i)
+    # im.save('' % i)
     result = pytesseract.image_to_string(im, lang='num', config="--psm 8 --oem 3 -c tessedit_"
                                                                 "char_whitelist=0123456789abcdefghijklmnopqrstuvwxyz")
     #print("result: " + result)
@@ -83,7 +83,7 @@ def login(id, password,iscrawl=False):
     formData['j_password'] = password
     for i in range(0,15):
         captcha = session.get('http://zhjw.scu.edu.cn/img/captcha.jpg')
-        with open('C:/Users/32838/Desktop/captcha/test.jpg', 'wb') as fd:
+        with open('', 'wb') as fd:
             fd.write(captcha.content)
         formData['j_captcha'] = getCaptcha()
         response = session.post(url='http://zhjw.scu.edu.cn/j_spring_security_check',
