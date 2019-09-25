@@ -20,7 +20,7 @@ with open('test.jpg', 'wb') as fd:
 img_cv = cv2.imread('')
 im = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
 cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 1)
-cv2.imwrite('C:/Users/32838/Desktop/captcha/test1.jpg', im)
+cv2.imwrite('', im)
 exit(0)
 '''
 
